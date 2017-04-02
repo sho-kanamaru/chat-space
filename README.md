@@ -18,3 +18,9 @@
 |column|type|constraint|index|
 |:---:|:---:|:---:|:---:|
 |name|string|null:false|○|
+
+## group_users table  
+|column|type|constraint|index|
+|:---:|:---:|:---:|:---:|
+|groups_id|integer|foreign_key: true|○|
+|users_id|integer|foreign_key: true|○|
