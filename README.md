@@ -14,3 +14,7 @@
 |:---:|:---:|:---:|:---:|
 |name|string|null:false|-|
 
+## users table  
+|column|type|constraint|index|
+|:---:|:---:|:---:|:---:|
+|name|string|null:false|○|
