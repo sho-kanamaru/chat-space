@@ -27,22 +27,23 @@
 
 # アソシエーション  
 class Message < ActiveRecord::Base  
-  belongs_to :user  
-  belongs_to :group  
+    belongs_to :user  
+    belongs_to :group  
 end  
   
 class Group < ActiveRecord::Base  
-  has_many :messages  
-  has_many :group_users  
-  has_many :users, through: :group_users  
+    has_many :messages  
+    has_many :group_users  
+    has_many :users, through: :group_users  
 end  
+
 class User < ActiveRecord::Base  
-  has_many :messages  
-  has_many :group_users  
-  has_many :groups, through: :group_users  
+    has_many :messages  
+    has_many :group_users  
+    has_many :groups, through: :group_users  
 end  
   
 class GroupUser < ActiveRecord::Base  
-  belongs_to :user  
-  belongs_to :group  
+    belongs_to :user  
+    belongs_to :group  
 end  
