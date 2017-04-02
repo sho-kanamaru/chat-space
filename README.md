@@ -8,3 +8,9 @@
 |image|string|-|-|
 |group_id|integer|foreign_key: true|○|
 |user_id|integer|foreign_key :true|○|
+
+## groups table  
+|column|type|constraint|index|
+|:---:|:---:|:---:|:---:|
+|name|string|null:false|-|
+
