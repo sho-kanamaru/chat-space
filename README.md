@@ -1,6 +1,6 @@
 == README
 
-# Definition of Database  
+# データベース設計  
 ## messages table  
 |column|type|constraint|index|
 |:---:|:---:|:---:|:---:|
