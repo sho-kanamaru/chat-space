@@ -1,0 +1,30 @@
+.wrapper
+  .notification
+    チャットグループが作成されました。
+  .box
+    .left-box
+      .left-box__user-name
+        kanamaru-sho
+      .left-box__talk
+        .left-box__talk--group
+          sample
+        .left-box__talk--message
+          Good bye World
+    .right-box
+      .right-box__group
+        .right-box__group--name
+          sample
+        .right-box__group--edit
+          =link_to "Edit", "#"
+        .right-box__group--member
+          Members:kanamaru-sho
+      .right-box__message
+        .right-box__message--name
+          kanamaru-sho
+        .right-box__message--date
+          2017/04/03
+        .right-box__message--content
+          Hello World!
+      .right-box__send
+        %textarea{name: :"type", class: :"right-box__send__input", placeholder: :"type a message"}
+        %input{type: :"submit", value: :"Send", class: :"right-box__send__button"}

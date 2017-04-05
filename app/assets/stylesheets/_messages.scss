@@ -1,0 +1,118 @@
+.wrapper{
+  min-width: 100vw;
+}
+
+.notification{
+  height: 28px;
+  background-color: #38AEF0;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.box{
+  width: 100vw;
+  height: calc(100vh - 28px);
+}
+
+.left-box{
+  height: calc(100vh - 28px);
+  width: 300px;
+  float: left;
+  &__user-name{
+    height: 96px;
+    width: 300px;
+    background-color: #253141;
+    color: #FFFFFF;
+    font-size: 16px;
+    padding: 0 20px 0 20px;
+    display: table-cell;
+    vertical-align: middle;
+  }
+  &__talk{
+    height: calc(100vh - 124px);
+    background-color: #2f3e51;
+    &--group{
+      color: #FFFFFF;
+      font-size: 15px;
+      padding: 20px 20px 5px 20px;
+    }
+    &--message{
+      color: #FFFFFF;
+      font-size: 11px;
+      padding: 0 20px 40px 20px;
+    }
+  }
+}
+
+.right-box{
+  width: calc(100vw - 300px);
+  height: calc(100vh - 28px);
+  float: left;
+  &__group{
+    border-style: solid;
+    border-color: #eeeeee;
+    height: 96px;
+    &--name{
+      font-size: 20px;
+      color: #333333;
+      float: left;
+      padding: 35px 0 15px 40px;
+    }
+    &--edit{
+      float: right;
+      margin: 28px 40px 0 0;
+    }
+    &--member{
+      font-size: 12px;
+      color: #999999;
+      padding: 0 0 0 40px;
+      clear: both;
+    }
+  }
+  &__message{
+    height: calc(100vh - 214px);
+    padding-top: 46px;
+    padding-left: 40px;
+    &--name{
+      font-size: 16px;
+      font-weight: bold;
+      color: #434A54;
+      display: inline;
+      }
+    &--date{
+      font-size: 12px;
+      color: #999999;
+      display: inline;
+      }
+    &--content{
+      font-size: 14px;
+      color: #434A54;
+      margin: 10px 0 0 0;
+      clear: both;
+      }
+    }
+
+  &__send{
+    height: 90px;
+    width: calc(100vw - 300px);
+    background-color: #DDDDDD;
+    position: absolute;
+    top: calc(100vh - 90px);
+    left: 300px;
+    &__input{
+      margin: 20px 0 20px 40px;
+      height: 50px;
+      width: calc(100% - 200px);;
+      float: left;
+      padding-left: 10px;
+      font-size: 16px;
+      color: #434A54;
+      }
+    &__button{
+      margin: 20px 40px 20px 15px;
+      background-color: #38AEF0;
+      color: #FFFFFF;
+      float: right;
+      }
+   }
+}
