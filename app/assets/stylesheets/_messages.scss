@@ -20,15 +20,29 @@
   float: left;
   &__user-name{
     height: 96px;
-    width: 300px;
+    line-height: 100px;
     background-color: #253141;
     color: #FFFFFF;
     font-size: 16px;
-    padding: 0 20px 0 20px;
-    display: table-cell;
+    padding: 0 20px;
     vertical-align: middle;
+    &--setting{
+      display: block;
+      float: right;
+      margin-top: 42px;
+      margin-right: 10px;
+      color: white;
+    }
+    &--edit{
+      display: block;
+      float: right;
+      margin-top: 42px;
+      margin-right: 15px;
+      color: white;
+    }
   }
-  &__talk{
+  &__talk
+  {
     height: calc(100vh - 124px);
     background-color: #2f3e51;
     &--group{
@@ -43,7 +57,6 @@
     }
   }
 }
-
 .right-box{
   width: calc(100vw - 300px);
   height: calc(100vh - 28px);
@@ -59,8 +72,21 @@
       padding: 35px 0 15px 40px;
     }
     &--edit{
+      height: 40px;
+      width: 60px;
+      display: block;
+      text-align: center;
       float: right;
       margin: 28px 40px 0 0;
+      font-size: 15px;
+      background-color: #FFFFFF;
+      border: 2px solid #38AEF0;
+      line-height: 45px;
+      cursor: pointer;
+      a{
+        text-decoration: none;
+        color: #38AEF0;
+      }
     }
     &--member{
       font-size: 12px;
@@ -107,11 +133,20 @@
       padding-left: 10px;
       font-size: 16px;
       color: #434A54;
+      line-height: 50px;
       }
+    &--image{
+      color: black;
+      position: absolute;
+      bottom: 37px;
+      right: 160px;
+            }
     &__button{
       margin: 20px 40px 20px 15px;
       background-color: #38AEF0;
       color: #FFFFFF;
+      height: 50px;
+      width: 90px;
       float: right;
       }
    }
