@@ -11,6 +11,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #見た目
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'font-awesome-rails'
 #haml適応
 gem 'haml-rails'
 

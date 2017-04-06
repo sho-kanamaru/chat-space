@@ -1,0 +1,143 @@
+.wrapper{
+  min-width: 100vw;
+}
+
+.box{
+  width: 100vw;
+  height: 100vh;
+}
+
+.left-box{
+  height: 100vh;
+  width: 300px;
+  float: left;
+  &__user-name{
+    height: 96px;
+    line-height: 100px;
+    background-color: $dark_navy;
+    color: $white;
+    font-size: 16px;
+    padding: 0 20px;
+    vertical-align: middle;
+    &--setting{
+      float: right;
+      margin-top: 42px;
+      margin-right: 10px;
+      color: $white;
+    }
+    &--edit{
+      float: right;
+      margin-top: 42px;
+      margin-right: 15px;
+      color: $white;
+    }
+  }
+  &__talk
+  {
+    height: calc(100vh - 98px);
+    background-color: $navy;
+    &--group{
+      color: $white;
+      font-size: 15px;
+      padding: 20px 20px 5px;
+    }
+    &--message{
+      color: $white;
+      font-size: 11px;
+      padding: 0 20px 40px;
+    }
+  }
+}
+.right-box{
+  width: calc(100vw - 300px);
+  height: 100vh;
+  float: left;
+  &__group{
+    border-style: solid;
+    border-color: $light_gray;
+    height: 96px;
+    &--name{
+      font-size: 20px;
+      color: $black;
+      float: left;
+      padding: 35px 0 15px 40px;
+    }
+    &--edit{
+      height: 40px;
+      width: 60px;
+      text-align: center;
+      float: right;
+      margin: 28px 40px 0 0;
+      font-size: 15px;
+      background-color: $white;
+      border: 2px solid $light_blue;
+      line-height: 45px;
+      cursor: pointer;
+      a{
+        text-decoration: none;
+        color: $light_blue;
+      }
+    }
+    &--member{
+      font-size: 12px;
+      color: $gray;
+      padding: 0 0 0 40px;
+      clear: both;
+    }
+  }
+  &__message{
+    height: calc(100vh - 214px);
+    padding-top: 46px;
+    padding-left: 40px;
+    &--name{
+      font-size: 16px;
+      font-weight: bold;
+      color: $light_black;
+      display: inline;
+      }
+    &--date{
+      font-size: 12px;
+      color: $gray;
+      display: inline;
+      }
+    &--content{
+      font-size: 14px;
+      color: $light_black;
+      margin: 10px 0 0 0;
+      clear: both;
+      }
+    }
+
+  &__send{
+    height: 90px;
+    width: calc(100vw - 300px);
+    background-color: $light_gray;
+    position: absolute;
+    top: calc(100vh - 92px);
+    left: 300px;
+    &__input{
+      margin: 20px 0 20px 40px;
+      height: 50px;
+      width: calc(100% - 200px);
+      float: left;
+      padding-left: 10px;
+      font-size: 16px;
+      color: $light_black;
+      line-height: 50px;
+      }
+    &--image{
+      color: $light_black;
+      position: absolute;
+      bottom: 37px;
+      right: 160px;
+            }
+    &__button{
+      margin: 20px 40px 20px 15px;
+      background-color: $light_blue;
+      color: $white;
+      height: 50px;
+      width: 90px;
+      float: right;
+      }
+   }
+}
