@@ -2,20 +2,13 @@
   min-width: 100vw;
 }
 
-.notification{
-  height: 28px;
-  background-color: $light_blue;
-  text-align: center;
-  color: $white;
-}
-
 .box{
   width: 100vw;
-  height: calc(100vh - 28px);
+  height: 100vh;
 }
 
 .left-box{
-  height: calc(100vh - 28px);
+  height: 100vh;
   width: 300px;
   float: left;
   &__user-name{
@@ -41,7 +34,7 @@
   }
   &__talk
   {
-    height: calc(100vh - 124px);
+    height: calc(100vh - 98px);
     background-color: $navy;
     &--group{
       color: $white;
@@ -57,7 +50,7 @@
 }
 .right-box{
   width: calc(100vw - 300px);
-  height: calc(100vh - 28px);
+  height: 100vh;
   float: left;
   &__group{
     border-style: solid;
@@ -120,7 +113,7 @@
     width: calc(100vw - 300px);
     background-color: $light_gray;
     position: absolute;
-    top: calc(100vh - 90px);
+    top: calc(100vh - 92px);
     left: 300px;
     &__input{
       margin: 20px 0 20px 40px;
