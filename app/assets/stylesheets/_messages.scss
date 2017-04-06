@@ -4,9 +4,9 @@
 
 .notification{
   height: 28px;
-  background-color: #38AEF0;
+  background-color: $light_blue;
   text-align: center;
-  color: #FFFFFF;
+  color: $white;
 }
 
 .box{
@@ -21,39 +21,37 @@
   &__user-name{
     height: 96px;
     line-height: 100px;
-    background-color: #253141;
-    color: #FFFFFF;
+    background-color: $dark_navy;
+    color: $white;
     font-size: 16px;
     padding: 0 20px;
     vertical-align: middle;
     &--setting{
-      display: block;
       float: right;
       margin-top: 42px;
       margin-right: 10px;
-      color: white;
+      color: $white;
     }
     &--edit{
-      display: block;
       float: right;
       margin-top: 42px;
       margin-right: 15px;
-      color: white;
+      color: $white;
     }
   }
   &__talk
   {
     height: calc(100vh - 124px);
-    background-color: #2f3e51;
+    background-color: $navy;
     &--group{
-      color: #FFFFFF;
+      color: $white;
       font-size: 15px;
-      padding: 20px 20px 5px 20px;
+      padding: 20px 20px 5px;
     }
     &--message{
-      color: #FFFFFF;
+      color: $white;
       font-size: 11px;
-      padding: 0 20px 40px 20px;
+      padding: 0 20px 40px;
     }
   }
 }
@@ -63,34 +61,33 @@
   float: left;
   &__group{
     border-style: solid;
-    border-color: #eeeeee;
+    border-color: $light_gray;
     height: 96px;
     &--name{
       font-size: 20px;
-      color: #333333;
+      color: $black;
       float: left;
       padding: 35px 0 15px 40px;
     }
     &--edit{
       height: 40px;
       width: 60px;
-      display: block;
       text-align: center;
       float: right;
       margin: 28px 40px 0 0;
       font-size: 15px;
-      background-color: #FFFFFF;
-      border: 2px solid #38AEF0;
+      background-color: $white;
+      border: 2px solid $light_blue;
       line-height: 45px;
       cursor: pointer;
       a{
         text-decoration: none;
-        color: #38AEF0;
+        color: $light_blue;
       }
     }
     &--member{
       font-size: 12px;
-      color: #999999;
+      color: $gray;
       padding: 0 0 0 40px;
       clear: both;
     }
@@ -102,17 +99,17 @@
     &--name{
       font-size: 16px;
       font-weight: bold;
-      color: #434A54;
+      color: $light_black;
       display: inline;
       }
     &--date{
       font-size: 12px;
-      color: #999999;
+      color: $gray;
       display: inline;
       }
     &--content{
       font-size: 14px;
-      color: #434A54;
+      color: $light_black;
       margin: 10px 0 0 0;
       clear: both;
       }
@@ -121,30 +118,30 @@
   &__send{
     height: 90px;
     width: calc(100vw - 300px);
-    background-color: #DDDDDD;
+    background-color: $light_gray;
     position: absolute;
     top: calc(100vh - 90px);
     left: 300px;
     &__input{
       margin: 20px 0 20px 40px;
       height: 50px;
-      width: calc(100% - 200px);;
+      width: calc(100% - 200px);
       float: left;
       padding-left: 10px;
       font-size: 16px;
-      color: #434A54;
+      color: $light_black;
       line-height: 50px;
       }
     &--image{
-      color: black;
+      color: $light_black;
       position: absolute;
       bottom: 37px;
       right: 160px;
             }
     &__button{
       margin: 20px 40px 20px 15px;
-      background-color: #38AEF0;
-      color: #FFFFFF;
+      background-color: $light_blue;
+      color: $white;
       height: 50px;
       width: 90px;
       float: right;
