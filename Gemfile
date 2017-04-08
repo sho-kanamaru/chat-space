@@ -14,6 +14,8 @@ gem 'turbolinks'
 gem 'font-awesome-rails'
 #haml適応
 gem 'haml-rails'
+#devise系
+gem 'devise'
 
 group :development, :test do
   gem 'byebug'
