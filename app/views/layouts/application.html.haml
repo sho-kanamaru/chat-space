@@ -7,6 +7,5 @@
     = javascript_include_tag 'application', data: { turbolinks: { track: true }}
     = csrf_meta_tags
   %body
-    - flash.each do |key, value|
-      = content_tag(:div, value, class: key)
+    = render partial: "common/flashmessage"
     = yield
