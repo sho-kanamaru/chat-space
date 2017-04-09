@@ -3,27 +3,29 @@
     .left-box
       .left-box__user-name
         kanamaru-sho
-        =link_to "/users/edit" do
+        =link_to edit_user_registration_path do
           %i.fa.fa-cog.left-box__user-name--setting
-        =link_to "#" do
+        =link_to new_group_path do
           %i.fa.fa-pencil-square-o.left-box__user-name--edit
       .left-box__talk
-        .left-box__talk__detail
-          .left-box__talk__detail--group
-            sample
-          .left-box__talk__detail--message
-            Good bye World
-        .left-box__talk__detail
-          .left-box__talk__detail--group
-            sample
-          .left-box__talk__detail--message
-            Good bye World
+        =link_to group_messages_path(1) do
+          .left-box__talk__detail
+            .left-box__talk__detail--group
+              sample
+            .left-box__talk__detail--message
+              Good bye World
+        =link_to group_messages_path(2) do
+          .left-box__talk__detail
+            .left-box__talk__detail--group
+              sample
+            .left-box__talk__detail--message
+              Good bye World
     .right-box
       .right-box__group
         .right-box__group--name
           sample
         .right-box__group--edit
-          =link_to "Edit", "#"
+          =link_to "Edit", edit_group_path(1)
         .right-box__group--member
           Members:kanamaru-sho
       .right-box__message
