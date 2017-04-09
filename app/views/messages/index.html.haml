@@ -3,15 +3,21 @@
     .left-box
       .left-box__user-name
         kanamaru-sho
-        %a{href: :"#"}
+        =link_to "/users/edit" do
           %i.fa.fa-cog.left-box__user-name--setting
-        %a{href: :"#"}
+        =link_to "#" do
           %i.fa.fa-pencil-square-o.left-box__user-name--edit
       .left-box__talk
-        .left-box__talk--group
-          sample
-        .left-box__talk--message
-          Good bye World
+        .left-box__talk__detail
+          .left-box__talk__detail--group
+            sample
+          .left-box__talk__detail--message
+            Good bye World
+        .left-box__talk__detail
+          .left-box__talk__detail--group
+            sample
+          .left-box__talk__detail--message
+            Good bye World
     .right-box
       .right-box__group
         .right-box__group--name
@@ -21,12 +27,21 @@
         .right-box__group--member
           Members:kanamaru-sho
       .right-box__message
-        .right-box__message--name
-          kanamaru-sho
-        .right-box__message--date
-          2017/04/03
-        .right-box__message--content
-          Hello World!
+        .right-box__message__box
+          .right-box__message__box__detail
+            .right-box__message__box__detail--name
+              kanamaru-sho
+            .right-box__message__box__detail--date
+              2017/04/03
+            .right-box__message__box__detail--content
+              Hello World!
+          .right-box__message__box__detail
+            .right-box__message__box__detail--name
+              kanamaru-sho
+            .right-box__message__box__detail--date
+              2017/04/03
+            .right-box__message__box__detail--content
+              Hello World!
       .right-box__send
         %textarea{name: :"type", class: :"right-box__send__input", placeholder: :"type a message"}
         %a{href: :"#"}
