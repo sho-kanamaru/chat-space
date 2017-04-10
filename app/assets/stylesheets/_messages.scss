@@ -36,6 +36,9 @@
   {
     height: calc(100vh - 96px);
     background-color: $navy;
+    a{
+      text-decoration: none;
+      }
     &__detail{
       padding: 20px;
       &--group{
