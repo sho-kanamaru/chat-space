@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
 
   def index
+    @groups = Group.order("id ASC")
   end
 
   def new
