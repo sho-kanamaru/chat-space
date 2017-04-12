@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
 
   def index
-    @groups = Group.order("id ASC")
+    @groups = current_user.groups.order("id ASC")
   end
 
   def new
