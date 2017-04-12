@@ -9,8 +9,12 @@ class GroupsController < ApplicationController
   end
 
   def create
-    Group.create(group_params)
-    redirect_to root_path
+    group = Group.new(group_params)
+    if group.save
+      redirect_to root_path, flash: {notice: "グループ作成成功"}
+    else
+      redirect_to new_group_path, flash: {alert: "グループ作成失敗"}
+    end
   end
 
   def update
