@@ -7,7 +7,7 @@
       %i.fa.fa-pencil-square-o.left-box__user-name--edit
   .left-box__talk
     - @groups.each do |group|
-      = link_to group_messages_path(group.id) do
+      = link_to group_messages_path(group) do
         .left-box__talk__detail
           .left-box__talk__detail--group
             = group.name
