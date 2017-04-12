@@ -4,9 +4,9 @@
     .right-box
       .right-box__group
         .right-box__group--name
-          sample
+          = @group.name
         .right-box__group--edit
-          =link_to "Edit", edit_group_path(1)
+          =link_to "Edit", edit_group_path(@group)
         .right-box__group--member
           Members:kanamaru-sho
       .right-box__message
