@@ -1,20 +1,15 @@
 .left-box
   .left-box__user-name
-    kanamaru-sho
+    = current_user.name
     =link_to edit_user_registration_path do
       %i.fa.fa-cog.left-box__user-name--setting
     =link_to new_group_path do
       %i.fa.fa-pencil-square-o.left-box__user-name--edit
   .left-box__talk
-    =link_to group_messages_path(1) do
-      .left-box__talk__detail
-        .left-box__talk__detail--group
-          sample
-        .left-box__talk__detail--message
-          Hello World
-    =link_to group_messages_path(2) do
-      .left-box__talk__detail
-        .left-box__talk__detail--group
-          sample2
-        .left-box__talk__detail--message
-          Good bye World
+    - @groups.each do |group|
+      = link_to group_messages_path(group) do
+        .left-box__talk__detail
+          .left-box__talk__detail--group
+            = group.name
+          .left-box__talk__detail--message
+            まだメッセージがありません
