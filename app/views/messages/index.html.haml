@@ -13,22 +13,17 @@
             = "#{user.name},"
       .right-box__message
         .right-box__message__box
-          .right-box__message__box__detail
-            .right-box__message__box__detail--name
-              kanamaru-sho
-            .right-box__message__box__detail--date
-              2017/04/01
-            .right-box__message__box__detail--content
-              Hello World
-          .right-box__message__box__detail
-            .right-box__message__box__detail--name
-              kanamaru-sho
-            .right-box__message__box__detail--date
-              2017/04/03
-            .right-box__message__box__detail--content
-              Good bye World
+          - @group.messages.each do |message|
+            .right-box__message__box__detail
+              .right-box__message__box__detail--name
+                = message.user.name
+              .right-box__message__box__detail--date
+                = message.created_at.strftime("%Y-%m-%d %H:%M:%S")
+              .right-box__message__box__detail--content
+                = message.body
+
       .right-box__send
-        %textarea{name: :"type", class: :"right-box__send__input", placeholder: :"type a message"}
-        %a{href: :"#"}
+        = form_for [@group, @message] do |f|
+          = f.text_field :body, placeholder: "type a message", class: "right-box__send__input"
           %i.fa.fa-image.right-box__send--image
-        %input{type: :"submit", value: :"Send", class: :"right-box__send__button"}
+          = f.submit "Send", class: "right-box__send__button"
