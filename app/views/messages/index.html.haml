@@ -8,7 +8,9 @@
         .right-box__group--edit
           =link_to "Edit", edit_group_path(@group)
         .right-box__group--member
-          Members:kanamaru-sho
+          Members:
+          - @group.users.each do |user|
+            = "#{user.name},"
       .right-box__message
         .right-box__message__box
           .right-box__message__box__detail
