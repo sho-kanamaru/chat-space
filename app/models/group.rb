@@ -5,10 +5,6 @@ class Group < ApplicationRecord
   has_many :messages
 
   def latest_message
-    if self.messages.exists?
-      return self.messages.order("created_at DESC")[0].body
-    else
-      return "まだメッセージはありません"
-    end
+    self.messages.exists? ? self.messages.order("created_at DESC")[0].body : "まだメッセージはありません"
   end
 end
