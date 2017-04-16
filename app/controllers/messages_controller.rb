@@ -17,12 +17,12 @@ class MessagesController < ApplicationController
   end
 
   def set_groups
-    @groups = current_user.groups
+    @groups = current_user.groups.includes(:messages)
     @group = Group.find(params[:group_id])
   end
 
   def set_messages
-    @messages = @group.messages
+    @messages = @group.messages.includes(:user)
   end
 
 end
