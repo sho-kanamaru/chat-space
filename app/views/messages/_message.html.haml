@@ -1,0 +1,8 @@
+- @group.messages.each do |message|
+  .right-box__message__box__detail
+    .right-box__message__box__detail--name
+      = message.user.name
+    .right-box__message__box__detail--date
+      = message.created_at.strftime("%Y-%m-%d %H:%M:%S")
+    .right-box__message__box__detail--content
+      = message.body
