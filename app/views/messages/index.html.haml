@@ -13,8 +13,7 @@
             = "#{user.name},"
       .right-box__message
         .right-box__message__box
-          - @messages.each do |message|
-            = render @messages
+          = render @messages
 
       .right-box__send
         = form_for [@group, @message] do |f|
