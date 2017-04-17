@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
 
   def index
-    @groups = current_user.groups.order("id ASC")
+    @groups = current_user.groups.includes(:messages)
   end
 
   def new
