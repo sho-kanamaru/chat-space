@@ -30,3 +30,7 @@ group :development do
   gem 'erb2haml'
 end
 
+group :test do
+  gem 'faker'
+end
+
