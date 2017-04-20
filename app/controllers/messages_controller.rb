@@ -7,13 +7,18 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.create(message_params)
-    redirect_to group_messages_path
+    @message = current_user.messages.new(message_params)
+    if @message.save
+      redirect_to group_messages_path, notice: "メッセージ送信成功"
+    else
+      flash.now[:alert] = "メッセージ送信失敗"
+      render "index"
+    end
   end
 
   private
   def message_params
-    params.require(:message).permit(:body).merge(group_id: params[:group_id], user_id: current_user.id)
+    params.require(:message).permit(:body).merge(group_id: params[:group_id])
   end
 
   def set_groups
