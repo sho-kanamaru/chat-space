@@ -9,7 +9,8 @@ class MessagesController < ApplicationController
   def create
     @message = current_user.messages.new(message_params)
     if @message.save
-      redirect_to group_messages_path, flash: {notice: "メッセージ送信成功"}
+      flash[:notice] = "メッセージ送信成功"
+      redirect_to group_messages_path
     else
       flash.now[:alert] = "メッセージ送信失敗"
       render "index"
