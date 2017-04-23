@@ -52,7 +52,7 @@ describe MessagesController, type: :controller do
 
     it "shows flash message to success to send message" do
       subject.call
-      expect(flash[:notice]).not_to be_empty
+      expect(flash[:notice]).to eq "メッセージ送信成功"
     end
 
     it "is invalid without a body" do
