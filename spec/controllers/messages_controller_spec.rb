@@ -50,7 +50,7 @@ describe MessagesController, type: :controller do
       expect(response).to redirect_to group_messages_path
     end
 
-    it "includes messages in flash[:notice]" do
+    it "shows flash message to success to send message" do
       subject.call
       expect(flash[:notice]).not_to be_empty
     end
