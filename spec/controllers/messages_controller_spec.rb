@@ -16,17 +16,17 @@ describe MessagesController, type: :controller do
       Proc.new { get :index, params: { group_id: group } }
     }
 
-    it "assigns the requested group to @group" do
+    it 'assigns the requested group to @group' do
       subject.call
       expect(assigns(:group)).to eq group
      end
 
-    it "assigns the requested messages to @messages" do
+    it 'assigns the requested messages to @messages' do
       subject.call
       expect(assigns(:messages)).to match(messages)
     end
 
-    it "renders the :index template" do
+    it 'renders the :index template' do
       subject.call
       expect(response).to render_template :index
     end
@@ -40,20 +40,20 @@ describe MessagesController, type: :controller do
         Proc.new { post :create, params: { message: attributes_for(:message), group_id: group.id } }
       }
 
-      it "saves the new message in the database" do
+      it 'saves the new message in the database' do
         expect{
           subject.call
         }.to change(Message, :count).by(1)
       end
 
-      it "redirects_to messages#index" do
+      it 'redirects_to messages#index' do
         subject.call
         expect(response).to redirect_to group_messages_path
       end
 
-      it "shows flash message to success to send message" do
+      it 'shows flash message to success to send message' do
         subject.call
-        expect(flash[:notice]).to eq "メッセージ送信成功"
+        expect(flash[:notice]).to eq 'メッセージ送信成功'
       end
     end
 
@@ -63,20 +63,20 @@ describe MessagesController, type: :controller do
         Proc.new { post :create, params: { message: attributes_for(:message, body: ""), group_id: group.id } }
       }
 
-      it "can't save the new message in the database" do
+      it "doesn't save the new message in the database" do
         expect{
           subject.call
         }.not_to change(Message, :count)
       end
 
-      it "renders the messages#index" do
+      it 'renders the messages#index' do
         subject.call
         expect(response).to render_template :index
       end
 
-      it "makes error message when body of message is nil" do
+      it 'makes error message to fail to send message' do
         subject.call
-        expect(flash[:alert]).to eq "メッセージ送信失敗"
+        expect(flash[:alert]).to eq 'メッセージ送信失敗'
       end
     end
   end
