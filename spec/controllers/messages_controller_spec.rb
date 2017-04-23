@@ -12,32 +12,41 @@ describe MessagesController, type: :controller do
 
   describe 'GET #index' do
 
+    subject {
+      Proc.new { get :index, params: { group_id: group } }
+    }
+
     it "assigns the requested group to @group" do
-      get :index, params: { group_id: group }
+      subject.call
       expect(assigns(:group)).to eq group
      end
 
     it "assigns the requested messages to @messages" do
-      get :index, params: { group_id: group }
+      subject.call
       expect(assigns(:messages)).to match(messages)
     end
 
     it "renders the :index template" do
-      get :index, params: { group_id: group }
+      subject.call
       expect(response).to render_template :index
     end
 
   end
 
   describe 'POST #create' do
+
+    subject {
+      Proc.new { post :create, params: { message: attributes_for(:message), group_id: group.id } }
+    }
+
     it "saves the new message in the database" do
       expect{
-            post :create, params: { message: attributes_for(:message), group_id: group.id }
-          }.to change(Message, :count).by(1)
+        subject.call
+      }.to change(Message, :count).by(1)
     end
 
     it "redirects_to messages#index" do
-      post :create, params: { message: {body: message.body}, group_id: group, user_id: user }
+      subject.call
       expect(response).to redirect_to group_messages_path
     end
   end
