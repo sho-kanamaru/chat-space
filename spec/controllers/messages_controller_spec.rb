@@ -49,5 +49,16 @@ describe MessagesController, type: :controller do
       subject.call
       expect(response).to redirect_to group_messages_path
     end
+
+    it "includes messages in flash[:notice]" do
+      subject.call
+      expect(flash[:notice]).not_to be_empty
+    end
+
+    it "is invalid without a body" do
+      message.body = ""
+      expect(message).not_to be_valid
+      expect(message.errors[:body]).to include("を入力してください。")
+    end
   end
 end
