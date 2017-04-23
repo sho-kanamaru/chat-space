@@ -14,7 +14,7 @@ describe MessagesController, type: :controller do
 
     it "assigns the requested group to @group" do
       get :index, params: { group_id: group }
-      expect(assigns(:group)). to eq group
+      expect(assigns(:group)).to eq group
      end
 
     it "assigns the requested messages to @messages" do
