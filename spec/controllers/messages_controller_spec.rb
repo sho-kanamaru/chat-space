@@ -35,30 +35,49 @@ describe MessagesController, type: :controller do
 
   describe 'POST #create' do
 
-    subject {
-      Proc.new { post :create, params: { message: attributes_for(:message), group_id: group.id } }
-    }
+    describe 'with valid attribute' do
+      subject {
+        Proc.new { post :create, params: { message: attributes_for(:message), group_id: group.id } }
+      }
 
-    it "saves the new message in the database" do
-      expect{
+      it "saves the new message in the database" do
+        expect{
+          subject.call
+        }.to change(Message, :count).by(1)
+      end
+
+      it "redirects_to messages#index" do
         subject.call
-      }.to change(Message, :count).by(1)
+        expect(response).to redirect_to group_messages_path
+      end
+
+      it "shows flash message to success to send message" do
+        subject.call
+        expect(flash[:notice]).to eq "メッセージ送信成功"
+      end
     end
 
-    it "redirects_to messages#index" do
-      subject.call
-      expect(response).to redirect_to group_messages_path
-    end
+    describe 'with invalid attribute' do
 
-    it "shows flash message to success to send message" do
-      subject.call
-      expect(flash[:notice]).to eq "メッセージ送信成功"
-    end
+      subject {
+        Proc.new { post :create, params: { message: attributes_for(:message, body: ""), group_id: group.id } }
+      }
 
-    it "is invalid without a body" do
-      message.body = ""
-      expect(message).not_to be_valid
-      expect(message.errors[:body]).to include("を入力してください。")
+      it "can't save the new message in the database" do
+        expect{
+          subject.call
+        }.not_to change(Message, :count)
+      end
+
+      it "renders the messages#index" do
+        subject.call
+        expect(response).to render_template :index
+      end
+
+      it "makes error message when body of message is nil" do
+        subject.call
+        expect(flash[:alert]).to eq "メッセージ送信失敗"
+      end
     end
   end
 end
