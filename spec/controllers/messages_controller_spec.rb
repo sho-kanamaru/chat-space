@@ -30,13 +30,13 @@ describe MessagesController, type: :controller do
   end
 
   describe 'POST #create' do
-    it "assigns the requested message to @message" do
+    it "saves the new message in the database" do
       expect{
             post :create, params: { message: attributes_for(:message), group_id: group.id }
           }.to change(Message, :count).by(1)
     end
 
-    it "renders the :create template" do
+    it "redirects_to messages#index" do
       post :create, params: { message: {body: message.body}, group_id: group, user_id: user }
       expect(response).to redirect_to group_messages_path
     end
