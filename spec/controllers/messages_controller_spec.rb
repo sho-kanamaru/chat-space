@@ -41,5 +41,4 @@ describe MessagesController, type: :controller do
       expect(response).to redirect_to group_messages_path
     end
   end
-
 end
