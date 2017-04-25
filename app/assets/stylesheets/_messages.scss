@@ -90,6 +90,7 @@
     }
   }
   &__message{
+    overflow: scroll;
     height: 425px;
     padding-left: 40px;
     &__box{
