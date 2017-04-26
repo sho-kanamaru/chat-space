@@ -17,8 +17,6 @@ $(function() {
   $('#new_message').on('submit', function(e){
     e.preventDefault();
 
-    var textField = $('.right-box__send__input');
-
     var formData = new FormData($(this).get(0));
 
     $.ajax({
@@ -33,7 +31,7 @@ $(function() {
     .done(function(data) {
       var html = buildHTML(data);
       $('.right-box__message__box').append(html);
-      textField.val('');
+      $('#new_message')[0].reset();
     })
     .fail(function() {
       alert('error');
