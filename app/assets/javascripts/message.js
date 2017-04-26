@@ -1,12 +1,16 @@
 $(function() {
   function buildHTML(message) {
-    var html = '<div class="right-box__message__box__detail">' +
-                  '<div class="right-box__message__box__detail--name">' +
-                  message.name + '</div>' +
-                  '<div class="right-box__message__box__detail--date">' +
-                  message.date + '</div>' +
-                  '<div class="right-box__message__box__detail--content">' +
-                  message.body + '</div>' + '</div>'
+    var html = `<div class="right-box__message__box__detail">
+                  <div class="right-box__message__box__detail--name">
+                    ${ message.name }
+                  </div>
+                  <div class="right-box__message__box__detail--date">
+                    ${ message.date }
+                  </div>
+                  <div class="right-box__message__box__detail--content">
+                    ${ message.body }
+                  </div>
+                </div>`;
     return html;
   }
 
