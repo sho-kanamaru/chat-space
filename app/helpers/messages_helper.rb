@@ -1,5 +1,5 @@
 module MessagesHelper
   def message_date(message)
-    message.created_at.strftime("%Y-%m-%d %H:%M:%S")
+    message.created_at.to_s(:datetime)
   end
 end

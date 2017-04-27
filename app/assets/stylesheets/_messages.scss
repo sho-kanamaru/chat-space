@@ -90,6 +90,7 @@
     }
   }
   &__message{
+    overflow: scroll;
     height: 425px;
     padding-left: 40px;
     &__box{
@@ -100,17 +101,18 @@
           font-size: 16px;
           font-weight: bold;
           color: $light_black;
-          display: inline;
+          float: left;
           }
         &--date{
           font-size: 12px;
           color: $gray;
-          display: inline;
+          float: left;
+          padding-left: 10px;
           }
         &--content{
-          font-size: 14px;
+          font-size: 15px;
           color: $light_black;
-          margin: 10px 0 0 0;
+          margin-top: 35px;
           clear: both;
           }
         }
