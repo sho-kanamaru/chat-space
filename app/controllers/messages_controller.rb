@@ -9,8 +9,9 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     if @message.save
+    flash[:notice] = "メッセージ送信成功"
       respond_to do |format|
-        format.html { redirect_to group_messages_path, flash: {notice: "メッセージ送信成功"} }
+        format.html { redirect_to group_messages_path, notice: "メッセージ送信成功"}
         format.json
       end
     else

@@ -14,8 +14,16 @@ $(function() {
     return html;
   }
 
+  function buildflash(message) {
+    var flash = `<div class="notice">
+                  ${ message.flash }
+                </div>`;
+    return flash;
+  }
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
+    $('.notice').remove();
 
     var formData = new FormData($(this).get(0));
 
@@ -29,8 +37,11 @@ $(function() {
     })
 
     .done(function(data) {
+      console.log(data);
       var html = buildHTML(data);
       $('.right-box__message__box').append(html);
+      var flash = buildflash(data);
+      $('body').prepend(flash);
       $('#new_message')[0].reset();
     })
     .fail(function() {
