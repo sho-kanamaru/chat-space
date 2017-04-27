@@ -7,7 +7,7 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new(message_params)
+    @message = current_user.messages.new(message_params)
     if @message.save
     flash[:notice] = "メッセージ送信成功"
       respond_to do |format|
@@ -22,7 +22,7 @@ class MessagesController < ApplicationController
 
   private
   def message_params
-    params.require(:message).permit(:body).merge(group_id: params[:group_id], user_id: current_user.id)
+    params.require(:message).permit(:body).merge(group_id: params[:group_id])
   end
 
   def set_groups
