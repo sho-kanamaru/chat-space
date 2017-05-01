@@ -2,6 +2,7 @@ $(function() {
 
   var search_list = $("#list");
   var member_list = $("#chat-group-users");
+  var preWord;
 
   function appendUser(user) {
     var html = `<li class='chat-group-user clearfix'>
@@ -48,6 +49,8 @@ $(function() {
 
     var input = $("#chat-group-form__input").val();
 
+    if(input !== preWord){
+
      $.ajax({
         type: 'GET',
         url: '/users/search',
@@ -75,5 +78,7 @@ $(function() {
      .fail(function() {
        alert('error');
      });
+     preWord = input;
+   }
   });
 });
