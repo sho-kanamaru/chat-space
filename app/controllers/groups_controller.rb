@@ -6,6 +6,7 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
+    @users_except_current_user = User.not_current_users.merge(GroupsUser.not_user(@group.id, current_user.id))
   end
 
   def create
@@ -20,6 +21,7 @@ class GroupsController < ApplicationController
 
   def edit
     @group = Group.find(params[:id])
+    @users_except_current_user = User.not_current_users.merge(GroupsUser.not_user(@group.id, current_user.id))
   end
 
   def update

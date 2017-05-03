@@ -26,7 +26,7 @@
             .chat-group-user__name
               = current_user.name
               = hidden_field_tag('group[user_ids][]', current_user.id)
-          = render partial: "groups/user", collection: @group.delete(current_user)
+          = render partial: "groups/user", collection: @users_except_current_user
 
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
