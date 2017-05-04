@@ -11,6 +11,7 @@ gem 'pry-rails'
 
 #画像系
 gem 'carrierwave'
+gem 'fog'
 #見た目
 gem 'jquery-rails'
 gem 'font-awesome-rails'
