@@ -1,5 +1,14 @@
 $(function() {
   function buildHTML(message) {
+
+    var image = ""
+
+    if(message.image) {
+      var image = `<div class="right-box__message__box__detail--image">
+                  <img src=${ message.image } alt=${ message.image }>
+                </div>`;
+    }
+
     var html = `<div class="right-box__message__box__detail">
                   <div class="right-box__message__box__detail--name">
                     ${ message.name }
@@ -10,6 +19,7 @@ $(function() {
                   <div class="right-box__message__box__detail--content">
                     ${ message.body }
                   </div>
+                  ${ image }
                 </div>`;
     return html;
   }
