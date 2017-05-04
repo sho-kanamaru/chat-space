@@ -9,6 +9,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'pry-rails'
 
+#画像系
+gem 'carrierwave'
 #見た目
 gem 'jquery-rails'
 gem 'font-awesome-rails'
