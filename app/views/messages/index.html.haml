@@ -18,5 +18,7 @@
       .right-box__send
         = form_for [@group, @message], html: {id: 'new_message'} do |f|
           = f.text_field :body, placeholder: "type a message", class: "right-box__send__input", required: true
-          %i.fa.fa-image.right-box__send--image
+          %label.right-box__send--image
+            = f.file_field :image
+            %i.fa.fa-image
           = f.submit "Send", class: "right-box__send__button"
