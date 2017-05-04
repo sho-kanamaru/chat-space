@@ -1,4 +1,3 @@
-
 $(function() {
 
   var search_list = $("#list");
