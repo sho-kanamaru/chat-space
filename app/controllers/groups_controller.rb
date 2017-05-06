@@ -21,10 +21,7 @@ class GroupsController < ApplicationController
 
   def edit
     @group = Group.find(params[:id])
-<<<<<<< HEAD
-=======
     @users_except_current_user = User.not_current_users.merge(GroupsUser.not_user(@group.id, current_user.id))
->>>>>>> incremental_search
   end
 
   def update

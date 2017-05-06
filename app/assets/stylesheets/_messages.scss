@@ -139,6 +139,13 @@
       position: absolute;
       bottom: 37px;
       right: 160px;
+      input{
+        display: none;
+      }
+      i{
+        position: relative;
+        top: 8px;
+      }
             }
     &__button{
       margin: 20px 40px 20px 15px;
