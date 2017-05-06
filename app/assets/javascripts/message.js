@@ -5,7 +5,7 @@ $(function() {
 
     if(message.image) {
       var image = `<div class="right-box__message__box__detail--image">
-                  <img src=${ message.image } alt=${ message.image }>
+                  <img src=${ message.image } alt= "image">
                 </div>`;
     }
 
