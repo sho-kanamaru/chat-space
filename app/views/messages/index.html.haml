@@ -17,7 +17,7 @@
 
       .right-box__send
         = form_for [@group, @message], html: {id: 'new_message'} do |f|
-          = f.text_field :body, placeholder: "type a message", class: "right-box__send__input", required: true
+          = f.text_field :body, placeholder: "type a message", class: "right-box__send__input"
           %label.right-box__send--image
             = f.file_field :image
             %i.fa.fa-image
