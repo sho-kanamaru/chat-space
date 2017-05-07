@@ -43,7 +43,6 @@ $(function() {
 
     var current_url = location.href;
     var last_message_id = $(".right-box__message__box__detail:last-child").data("id");
-    console.log(last_message_id);
 
     $.ajax({
       type: 'GET',
@@ -58,6 +57,7 @@ $(function() {
       $.each(data, function(i, message) {
         var html = buildHTML(message);
         $('.right-box__message__box').append(html);
+        console.log(data);
         if(data.length){
           var last_message_id = $(".right-box__message__box__detail:last-child");
           scroll_to_bottom(last_message_id);
@@ -85,9 +85,10 @@ $(function() {
     })
 
     .done(function(data) {
-      console.log(data);
       var html = buildHTML(data);
       $('.right-box__message__box').append(html);
+      var last_message_id = $(".right-box__message__box__detail:last-child");
+      scroll_to_bottom(last_message_id);
       var flash = buildflash(data);
       $('body').prepend(flash);
       $('#new_message')[0].reset();

@@ -7,6 +7,7 @@ class MessagesController < ApplicationController
     respond_to do |format|
       format.html
       format.json {@update_message = @group.messages.where('id > ?', params[:last_message_id])}
+    end
   end
 
   def create
