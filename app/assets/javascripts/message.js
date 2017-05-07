@@ -31,6 +31,40 @@ $(function() {
     return flash;
   }
 
+  if(document.URL.match("/messages")) {
+    setInterval(autoload, 10000);
+  }
+
+  function autoload(){
+
+    var current_url = location.href;
+    var last_message_id = $(".right-box__message__box__detail:last-child").data("id");
+    console.log(last_message_id);
+
+    $.ajax({
+      type: 'GET',
+      url: current_url,
+      data: {
+        last_message_id: last_message_id
+      },
+      dataType: 'json'
+    })
+
+    .done(function(data) {
+      $.each(data, function(i, message) {
+        var html = buildHTML(message);
+        $('.right-box__message__box').append(html);
+        if(data.length){
+          var last_message_id = $(".right-box__message__box__detail:last-child");
+          scroll_to_bottom(last_message_id);
+        }
+      });
+    })
+    .fail(function() {
+      alert('error');
+    });
+  }
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     $('.notice').remove();
