@@ -35,6 +35,10 @@ $(function() {
     setInterval(autoload, 10000);
   }
 
+  function scroll_to_bottom(target_id) {
+    $('.right-box__message').animate({scrollTop: target_id.offset().top});
+  }
+
   function autoload(){
 
     var current_url = location.href;
