@@ -9,7 +9,7 @@ $(function() {
                 </div>`;
     }
 
-    var html = `<div class="right-box__message__box__detail">
+    var html = `<div class="right-box__message__box__detail" data-id='${ message.data }'>
                   <div class="right-box__message__box__detail--name">
                     ${ message.name }
                   </div>
