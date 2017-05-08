@@ -57,7 +57,6 @@ $(function() {
       $.each(data, function(i, message) {
         var html = buildHTML(message);
         $('.right-box__message__box').append(html);
-        console.log(data);
         if(data.length){
           var last_message_id = $(".right-box__message__box__detail:last-child");
           scroll_to_bottom(last_message_id);
