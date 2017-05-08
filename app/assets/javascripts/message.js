@@ -9,7 +9,7 @@ $(function() {
                 </div>`;
     }
 
-    var html = `<div class="right-box__message__box__detail">
+    var html = `<div class="right-box__message__box__detail" data-id='${ message.data }'>
                   <div class="right-box__message__box__detail--name">
                     ${ message.name }
                   </div>
@@ -31,6 +31,43 @@ $(function() {
     return flash;
   }
 
+  if(document.URL.match("/messages")) {
+    setInterval(autoload, 10000);
+  }
+
+  function scroll_to_bottom(target_id) {
+    $('.right-box__message').animate({scrollTop: target_id.offset().top});
+  }
+
+  function autoload(){
+
+    var current_url = location.href;
+    var last_message_id = $(".right-box__message__box__detail:last-child").data("id");
+
+    $.ajax({
+      type: 'GET',
+      url: current_url,
+      data: {
+        last_message_id: last_message_id
+      },
+      dataType: 'json'
+    })
+
+    .done(function(data) {
+      $.each(data, function(i, message) {
+        var html = buildHTML(message);
+        $('.right-box__message__box').append(html);
+        if(data.length){
+          var last_message_id = $(".right-box__message__box__detail:last-child");
+          scroll_to_bottom(last_message_id);
+        }
+      });
+    })
+    .fail(function() {
+      alert('error');
+    });
+  }
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     $('.notice').remove();
@@ -47,9 +84,10 @@ $(function() {
     })
 
     .done(function(data) {
-      console.log(data);
       var html = buildHTML(data);
       $('.right-box__message__box').append(html);
+      var last_message_id = $(".right-box__message__box__detail:last-child");
+      scroll_to_bottom(last_message_id);
       var flash = buildflash(data);
       $('body').prepend(flash);
       $('#new_message')[0].reset();
