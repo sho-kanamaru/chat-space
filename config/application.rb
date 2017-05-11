@@ -6,6 +6,11 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+config.react.jsx_transform_options = {
+  harmony: true,
+  strip_types: true, # for removing Flow type annotations
+}
+
 module ChatSpace
   class Application < Rails::Application
     config.generators do |g|
