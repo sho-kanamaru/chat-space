@@ -7,7 +7,7 @@ stdout_path "#{app_path}/log/unicorn.stdout.log"
 worker_processes 1
 
 listen 3000
-timeout 60
+timeout 100
 
 preload_app true
 GC.respond_to?(:copy_on_write_friendly=) && GC.copy_on_write_friendly = true
