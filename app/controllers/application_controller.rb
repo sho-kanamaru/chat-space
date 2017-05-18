@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
     root_path
   end
 
+  def reject_user_not_belongs_to_group
+    redirect_to :root unless current_user.join_group?(@group)
+  end
+
   before_action :authenticate_user!
   protect_from_forgery with: :exception
 

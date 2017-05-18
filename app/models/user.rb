@@ -9,4 +9,8 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   scope :not_current_users, -> { joins(:groups_users) }
+
+  def join_group?(group)
+    groups.include?(group)
+  end
 end

@@ -1,5 +1,7 @@
 class GroupsController < ApplicationController
 
+  before_action :reject_user_not_belongs_to_group, only: :edit
+
   def index
     @groups = current_user.groups.includes(:messages)
   end

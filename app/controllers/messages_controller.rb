@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
-  
+
   before_action :set_groups, :set_messages, only: [:index, :create]
+  before_action :reject_user_not_belongs_to_group, only: :index
 
   def index
     @message = Message.new
