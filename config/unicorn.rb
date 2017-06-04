@@ -1,5 +1,5 @@
 app_path = File.expand_path('../../../', __FILE__)
-working_directory "app_path"
+working_directory app_path
 pid "#{app_path}/shared/tmp/pids/unicorn.pid"
 stderr_path "#{app_path}/log/unicorn.stderr.log"
 stdout_path "#{app_path}/log/unicorn.stdout.log"
