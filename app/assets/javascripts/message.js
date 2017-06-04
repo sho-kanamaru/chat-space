@@ -73,6 +73,7 @@ $(function() {
     $('.notice').remove();
 
     var formData = new FormData($(this).get(0));
+    console.log(formData);
 
     $.ajax({
       type: 'POST',

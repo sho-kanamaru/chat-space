@@ -1,9 +1,5 @@
 class ApplicationController < ActionController::Base
 
-  def after_sign_in_path_for(resource)
-    root_path
-  end
-
   def reject_user_not_belongs_to_group
     redirect_to :root unless current_user.join_group?(@group)
   end
@@ -16,5 +12,9 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
     devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+  end
+
+  def after_sign_in_path_for(resource)
+    root_path
   end
 end
