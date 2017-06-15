@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
-gem 'mysql2', '>= 0.3.13', '< 0.5'
+gem 'mysql2', '0.3.18'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -12,7 +12,6 @@ gem 'pry-rails'
 #画像系
 gem 'carrierwave'
 gem 'fog'
-gem 'mini_magick'
 #見た目
 gem 'jquery-rails'
 gem 'font-awesome-rails'
@@ -45,5 +44,9 @@ end
 
 group :test do
   gem 'faker'
+end
+
+group :production, :staging do
+  gem 'rails_12factor'
 end
 

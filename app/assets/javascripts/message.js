@@ -1,13 +1,13 @@
 $(function() {
   function buildHTML(message) {
+    console.log(message.image);
+  var image = ""
 
-    var image = ""
-
-    if(message.image) {
-      var image = `<div class="right-box__message__box__detail--image">
+  if(message.image) {
+   var image = `<div class="right-box__message__box__detail--image">
                   <img src=${ message.image } alt= "image">
                 </div>`;
-    }
+  }
 
     var html = `<div class="right-box__message__box__detail" data-id='${ message.data }'>
                   <div class="right-box__message__box__detail--name">
@@ -43,6 +43,7 @@ $(function() {
 
     var current_url = location.href;
     var last_message_id = $(".right-box__message__box__detail:last-child").data("id");
+    console.log(last_message_id);
 
     $.ajax({
       type: 'GET',
@@ -73,7 +74,6 @@ $(function() {
     $('.notice').remove();
 
     var formData = new FormData($(this).get(0));
-    console.log(formData);
 
     $.ajax({
       type: 'POST',
@@ -87,8 +87,10 @@ $(function() {
     .done(function(data) {
       var html = buildHTML(data);
       $('.right-box__message__box').append(html);
+
       var last_message_id = $(".right-box__message__box__detail:last-child");
       scroll_to_bottom(last_message_id);
+
       var flash = buildflash(data);
       $('body').prepend(flash);
       $('#new_message')[0].reset();
