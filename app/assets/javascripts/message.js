@@ -1,15 +1,11 @@
 $(function() {
   function buildHTML(message) {
 
-    console.log(message.body);
-    console.log(message.image);
-
     var image = `<div class="right-box__message__box__detail--image">
                   <img src=${ message.image } alt= "image">
                 </div>`;
 
     if(message.body && message.image) {
-      console.log(message.body);
       var html = `<div class="right-box__message__box__detail" data-id='${ message.data }'>
                     <div class="right-box__message__box__detail--name">
                       ${ message.name }
@@ -23,7 +19,6 @@ $(function() {
                     ${ image }
                   </div>`;
     } else if (message.body) {
-      console.log(message.body);
       var html = `<div class="right-box__message__box__detail" data-id='${ message.data }'>
                     <div class="right-box__message__box__detail--name">
                       ${ message.name }
@@ -36,13 +31,14 @@ $(function() {
                     </div>
                   </div>`;
     } else if (message.image) {
-      console.log(message.image);
       var html = `<div class="right-box__message__box__detail" data-id='${ message.data }'>
                     <div class="right-box__message__box__detail--name">
                       ${ message.name }
                     </div>
                     <div class="right-box__message__box__detail--date">
                       ${ message.date }
+                    </div>
+                    <div class="right-box__message__box__detail--content">
                     </div>
                     ${ image }
                   </div>`;
@@ -58,7 +54,7 @@ $(function() {
   }
 
   if(document.URL.match("/messages")) {
-    // setInterval(autoload, 10000);
+    setInterval(autoload, 10000);
   }
 
   function scroll_to_bottom(target_id) {
