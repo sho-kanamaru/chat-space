@@ -17,7 +17,7 @@ class MessagesController < ApplicationController
     if @message.save
     flash[:notice] = "メッセージ送信成功"
       respond_to do |format|
-        format.html { redirect_to group_messages_path, notice: "メッセージ送信成功"}
+        format.html
         format.json
       end
     else
