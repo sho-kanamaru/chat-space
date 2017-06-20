@@ -14,6 +14,7 @@ class MessagesController < ApplicationController
 
   def create
     @message = current_user.messages.new(message_params)
+    binding.pry
     if @message.save
     flash[:notice] = "メッセージ送信成功"
       respond_to do |format|
