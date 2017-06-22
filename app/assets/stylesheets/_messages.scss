@@ -33,7 +33,7 @@
     }
   }
   &__talk{
-    height: 420px;
+    height: calc(100vh - 100px - 90px);
     background-color: $navy;
     a{
       text-decoration: none;
@@ -62,7 +62,7 @@
   &__group{
     border-style: solid;
     border-color: $light_gray;
-    height: 96px;
+    height: 92px;
     &--name{
       font-size: 20px;
       color: $black;
@@ -94,7 +94,7 @@
   }
   &__message{
     overflow: scroll;
-    height: 415px;
+    height: calc(100vh - 100px - 90px);
     padding-left: 40px;
     &__box{
       padding-top: 26px;
