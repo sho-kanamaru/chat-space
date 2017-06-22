@@ -32,9 +32,8 @@
       color: $white;
     }
   }
-  &__talk
-  {
-    height: calc(100vh - 96px);
+  &__talk{
+    height: 420px;
     background-color: $navy;
     a{
       text-decoration: none;
@@ -50,6 +49,10 @@
         font-size: 11px;
       }
     }
+  }
+  &__footer{
+    height: 90px;
+    background-color: $navy;
   }
 }
 .right-box{
@@ -91,7 +94,7 @@
   }
   &__message{
     overflow: scroll;
-    height: 425px;
+    height: 415px;
     padding-left: 40px;
     &__box{
       padding-top: 26px;
