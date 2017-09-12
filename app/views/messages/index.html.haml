@@ -12,7 +12,7 @@
           - @group.users.each do |user|
             = "#{user.name},"
       .right-box__message
-        .right-box__message__box
+        .right-box__message__box{id: 'right-box__message__box'}
           = render @messages
 
       .right-box__send
