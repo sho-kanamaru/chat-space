@@ -1,4 +1,7 @@
 Rails.application.configure do
+
+  config.action_cable.allowed_request_origins = ['http://localhost:3000']
+  # config.web_console.whitelisted_ips = 'crient-server-address'
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
