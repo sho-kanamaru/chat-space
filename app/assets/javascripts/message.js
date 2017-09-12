@@ -6,10 +6,6 @@ $(function() {
     return flash;
   }
 
-  function scroll_to_bottom(target_id) {
-    $('.right-box__message').animate({scrollTop: target_id.offset().top});
-  }
-
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     $('.notice').remove();
@@ -27,9 +23,6 @@ $(function() {
 
     .done(function(data) {
       App.chat.put_message(data);
-
-      var last_message_id = $(".right-box__message__box__detail:last-child");
-      scroll_to_bottom(last_message_id);
 
       var flash = buildflash(data);
       $('body').prepend(flash);

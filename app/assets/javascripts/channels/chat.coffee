@@ -53,5 +53,13 @@ App.chat = App.cable.subscriptions.create "ChatChannel",
 
     $('.right-box__message__box').append html
 
+    last_message_id = $('.right-box__message__box__detail:last-child')
+
+    scroll_to_bottom = (target_id) ->
+      $('.right-box__message').animate scrollTop: target_id.offset().top
+      return
+
+    scroll_to_bottom last_message_id
+
   put_message: (msg) ->
     @perform('put_message', { message: msg })
