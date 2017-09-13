@@ -6,13 +6,12 @@ App.chat = App.cable.subscriptions.create "ChatChannel",
     # Called when the subscription has been terminated by the server
 
   received: (message) ->
-    console.log(message.image)
     image = '<div class="right-box__message__box__detail--image">' +
               "<img src＝#{message.image} alt= 'image'>" +
             '</div>'
 
     if message.body and message.image
-      html = '<div class="right-box__message__box__detail" data-id= "#{message.data}" >' +
+      html = "<div class='right-box__message__box__detail' data-id= #{message.data} >" +
                '<div class="right-box__message__box__detail--name">' +
                   message.name +
                '</div>' +
@@ -26,7 +25,7 @@ App.chat = App.cable.subscriptions.create "ChatChannel",
               '</div>'
 
     else if message.body
-      html = '<div class="right-box__message__box__detail" data-id= "#{message.data}" >' +
+      html = "<div class='right-box__message__box__detail' data-id= #{message.data} >" +
                '<div class="right-box__message__box__detail--name">' +
                   message.name +
                '</div>' +
@@ -39,7 +38,7 @@ App.chat = App.cable.subscriptions.create "ChatChannel",
              '</div>'
 
     else if message.image
-      html = '<div class="right-box__message__box__detail" data-id= "#{message.data}" >' +
+      html = "<div class='right-box__message__box__detail' data-id= #{message.data} >" +
                '<div class="right-box__message__box__detail--name">' +
                   message.name +
                '</div>' +
@@ -54,12 +53,13 @@ App.chat = App.cable.subscriptions.create "ChatChannel",
     $('.right-box__message__box').append html
 
     last_message_id = $('.right-box__message__box__detail:last-child')
+    last_message_height = last_message_id[0].offsetTop
 
     scroll_to_bottom = (target_id) ->
-      $('.right-box__message').animate scrollTop: target_id.offset().top
+      $('.right-box__message').animate scrollTop: target_id
       return
 
-    scroll_to_bottom last_message_id
+    scroll_to_bottom last_message_height
 
   put_message: (msg) ->
     @perform('put_message', { message: msg })
