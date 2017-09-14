@@ -33,7 +33,6 @@ App.chat = App.cable.subscriptions.create "ChatChannel",
            '</div>'
 
     $('.right-box__message__box').append html
-    debugger
 
     last_message_id = $('.right-box__message__box__detail:last-child')
     last_message_height = last_message_id[0].offsetTop
