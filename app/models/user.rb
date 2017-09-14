@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :messages
   validates :name, presence: true
 
-  scope :not_current_users, -> { joins(:groups_users) }
+  scope :not_current_users, ->(group, user) { joins(:groups_users).merge(GroupsUser.where(["group_id = ? and user_id != ?", group, user])) }
 
   def join_group?(group)
     groups.include?(group)
