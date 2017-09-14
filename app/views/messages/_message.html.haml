@@ -3,7 +3,9 @@
     = message.user.name
   .right-box__message__box__detail--date
     = message_date(message)
-  .right-box__message__box__detail--content
-    = message.body
-  .right-box__message__box__detail--image
-    = image_tag message.image
+  - if message.body
+    .right-box__message__box__detail--content
+      = message.body
+  - if message.image.url
+    .right-box__message__box__detail--image
+      = image_tag message.image
