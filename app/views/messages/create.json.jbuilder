@@ -3,4 +3,6 @@ json.body @message.body
 json.name @message.user.name
 json.image @message.image.url
 json.data @message.id
-json.flash flash[:notice]
+json.group_id @message.group.id
+json.flash_notice flash[:notice]
+
