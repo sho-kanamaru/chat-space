@@ -8,6 +8,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'pry-rails'
+gem 'puma', '~> 3.7'
+gem 'websocket-rails'
 
 #画像系
 gem 'carrierwave'

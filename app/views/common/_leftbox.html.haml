@@ -6,11 +6,11 @@
     =link_to new_group_path do
       %i.fa.fa-pencil-square-o.left-box__user-name--edit
   .left-box__talk
-    - @groups.each do |group|
+    - @groups.each_with_index do |group, i|
       = link_to group_messages_path(group) do
         .left-box__talk__detail
           .left-box__talk__detail--group
             = group.name
-          .left-box__talk__detail--message
+          .left-box__talk__detail--message{id: "left-box__talk__detail-#{i+1}"}
             = group.latest_message
   .left-box__footer

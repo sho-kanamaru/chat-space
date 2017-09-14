@@ -22,7 +22,10 @@ class MessagesController < ApplicationController
       end
     else
       flash.now[:alert] = "メッセージ送信失敗"
-      render "index"
+      respond_to do |format|
+        format.html
+        format.json { render 'alert', handlers: 'jbuilder' }
+      end
     end
   end
 

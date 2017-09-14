@@ -5,6 +5,12 @@ class Group < ApplicationRecord
   has_many :messages
 
   def latest_message
-    self.messages.last.try(:body) || "まだメッセージはありません"
+    if self.messages.last == nil
+      "まだメッセージはありません"
+    elsif self.messages.last.image.url == nil
+      self.messages.last.try(:body)
+    else
+      "画像が送信されました"
+    end
   end
 end
