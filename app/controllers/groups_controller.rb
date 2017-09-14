@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
 
-  # after_action :reject_user_not_belongs_to_group, only: :edit
+  after_action :set_users_except_current_user, only: [:new, :edit]
 
   def index
     @groups = current_user.groups.includes(:messages)
@@ -8,7 +8,6 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    @users_except_current_user = User.not_current_users(@group, current_user)
   end
 
   def create
@@ -23,7 +22,6 @@ class GroupsController < ApplicationController
 
   def edit
     @group = Group.find(params[:id])
-    @users_except_current_user = User.not_current_users(@group, current_user)
   end
 
   def update
@@ -37,4 +35,7 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:name, user_ids: [])
   end
 
+  def set_users_except_current_user
+    @users_except_current_user = User.not_current_users(@group, current_user)
+  end
 end
