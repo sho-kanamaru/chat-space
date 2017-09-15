@@ -6,6 +6,10 @@ class MessagesController < ApplicationController
 
   def index
     @message = Message.new
+    @users = User.where.not(id: current_user)
+    @message.message_recipients.build
+    group_message = MessageRecipient.where(group_id: @group, user_id: current_user)
+    group_message.update_all(read_flg: "read")
     respond_to do |format|
       format.html
       format.json {@update_message = @group.messages.where('id > ?', params[:last_message_id])}
@@ -14,6 +18,9 @@ class MessagesController < ApplicationController
 
   def create
     @message = current_user.messages.new(message_params)
+    group_message = MessageRecipient.where(group_id: @group, user_id: current_user)
+    group_message.update_all(read_flg: "read")
+    @unread_count_messages = unread_message_count(@group, @group.users.where.not(id: current_user))
     if @message.save
     flash[:notice] = "メッセージ送信成功"
       respond_to do |format|
@@ -31,7 +38,7 @@ class MessagesController < ApplicationController
 
   private
   def message_params
-    params.require(:message).permit(:body, :image).merge(group_id: params[:group_id])
+    params.require(:message).permit(:body, :image, message_recipients_attributes: [:group_id, :user_id, :message_id, :read_flg]).merge(group_id: params[:group_id])
   end
 
   def set_groups
@@ -41,6 +48,14 @@ class MessagesController < ApplicationController
 
   def set_messages
     @messages = @group.messages.includes(:user)
+  end
+
+  def unread_message_count(group,users)
+    unread_message_count_hash = {}
+    users.each do |user|
+      unread_message_count_hash["#{user.id}"] = group.message_recipients.where(user_id: user.id).unread.size
+    end
+    return unread_message_count_hash
   end
 
 end

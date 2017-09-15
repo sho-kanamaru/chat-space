@@ -39,14 +39,37 @@
       text-decoration: none;
       }
     &__detail{
-      padding: 20px;
+      padding: 15px 20px;
       &--group{
         color: $white;
         font-size: 15px;
+        display: inline-block;
       }
       &--message{
         color: $white;
         font-size: 11px;
+      }
+      &--unread_count{
+        width: 25px;
+        height: 25px;
+        margin-left: 5px;
+        display: inline-block;
+        border-radius: 50%;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -o-border-radius: 50%;
+        -ms-border-radius: 50%;
+        font-size: 20px;
+        color: #fff;
+        background-color: #FF367F;
+        text-align: center;
+        p{
+          font-size: 15px;
+          position: relative;
+          top:50%;
+          transform: translateY(-50%);
+          margin-left: -2px;
+        }
       }
     }
   }

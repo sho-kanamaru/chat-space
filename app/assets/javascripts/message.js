@@ -35,11 +35,6 @@ $(function() {
         var flash = buildflash_notice(data);
         App.chat.put_message(data);
         $('#new_message')[0].reset();
-        if (data.body == ""){
-          $('#left-box__talk__detail-'+data.group_id).text("画像が送信されました");
-        } else {
-          $('#left-box__talk__detail-'+data.group_id).text(data.body);
-        }
       } else {
         var flash = buildflash_alert(data);
       }

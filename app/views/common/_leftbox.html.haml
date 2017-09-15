@@ -1,16 +1,20 @@
 .left-box
   .left-box__user-name
     = current_user.name
-    =link_to edit_user_registration_path do
+    = link_to edit_user_registration_path do
       %i.fa.fa-cog.left-box__user-name--setting
-    =link_to new_group_path do
+    = link_to new_group_path do
       %i.fa.fa-pencil-square-o.left-box__user-name--edit
   .left-box__talk
-    - @groups.each_with_index do |group, i|
+    - @groups.each do |group|
       = link_to group_messages_path(group) do
-        .left-box__talk__detail
-          .left-box__talk__detail--group
+        .left-box__talk__detail{id: "left-box__talk"}
+          .left-box__talk__detail--group{id: "left-box__talk-#{group.id}-user#{current_user.id}"}
             = group.name
-          .left-box__talk__detail--message{id: "left-box__talk__detail-#{i+1}"}
+          - unless reading_judgment(group)
+            .left-box__talk__detail--unread_count
+              %p
+                = unread_message_count(group)
+          .left-box__talk__detail--message{id: "left-box__talk__detail-#{group.id}"}
             = group.latest_message
   .left-box__footer
