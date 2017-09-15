@@ -18,6 +18,17 @@
       .right-box__send
         = form_for [@group, @message], html: {id: 'new_message'} do |f|
           = f.text_field :body, placeholder: "type a message", class: "right-box__send__input"
+          = f.fields_for :message_recipients do |message|
+            = message.hidden_field :group_id, value: "#{@group.id}"
+            = message.hidden_field :user_id, value: "#{current_user.id}"
+            = message.hidden_field :message_id, value: "#{@message.id}"
+            = message.hidden_field :read_flg, value: :read
+          - @users.each do |user|
+            = f.fields_for :message_recipients do |message|
+              = message.hidden_field :group_id, value: "#{@group.id}"
+              = message.hidden_field :user_id, value: "#{user.id}"
+              = message.hidden_field :message_id, value: "#{@message.id}"
+              = message.hidden_field :read_flg, value: :unread
           %label.right-box__send--image
             = f.file_field :image
             %i.fa.fa-image
