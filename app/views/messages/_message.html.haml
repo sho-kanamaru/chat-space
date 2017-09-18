@@ -1,11 +1,14 @@
-.right-box__message__box__detail{data:{id: message.id}}
-  .right-box__message__box__detail--name
-    = message.user.name
-  .right-box__message__box__detail--date
-    = message_date(message)
-  - if message.body
-    .right-box__message__box__detail--content
-      = message.body
-  - if message.image.url
-    .right-box__message__box__detail--image
-      = image_tag message.image
+.right-box__message__box__detail--name
+  = message.user.name
+.right-box__message__box__detail--date
+  = message_date(message)
+- if message.body
+  .right-box__message__box__detail--content
+    = message.body
+- if message.image.url
+  .right-box__message__box__detail--image
+    = image_tag message.image
+- if message.user_id == current_user.id
+  .right-box__message__box__detail--reading{title: "#{read_message_member(message)}"}
+    = read_message_count(message)
+    = " people have already read."
