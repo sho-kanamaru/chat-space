@@ -46,4 +46,7 @@ $(function() {
     });
     return false;
   });
+
+  $('.right-box__message__box__detail--reading').balloon();
+
 });
