@@ -35,17 +35,28 @@ App.chat = App.cable.subscriptions.create "ChatChannel",
       return
 
     message_content = buildMessageBody message
-    html = "<div class='right-box__message__box__detail' data-id= #{message.data} >" +
-             '<div class="right-box__message__box__detail--name">' +
-               message.name +
-             '</div>' +
-             '<div class="right-box__message__box__detail--date">' +
-               message.date +
-             '</div>' +
-             message_content +
-           '</div>'
+    if message.message_user_id == message.user_id
+        html = "<div class='right-box__message__box__detail-current_user' data-id= #{message.data} >" +
+                 '<div class="right-box__message__box__detail--name">' +
+                   message.name +
+                 '</div>' +
+                 '<div class="right-box__message__box__detail--date">' +
+                   message.date +
+                 '</div>' +
+                 message_content +
+               '</div>'
+    else
+        html = "<div class='right-box__message__box__detail-other_user' data-id= #{message.data} >" +
+                 '<div class="right-box__message__box__detail--name">' +
+                   message.name +
+                 '</div>' +
+                 '<div class="right-box__message__box__detail--date">' +
+                   message.date +
+                 '</div>' +
+                 message_content +
+               '</div>'
 
-    last_message_id = $('.right-box__message__box__detail:last-child')
+    last_message_id = $('.right-box__message__box div').last()
     last_message_height = last_message_id[0].offsetTop
 
     real_path = location.pathname

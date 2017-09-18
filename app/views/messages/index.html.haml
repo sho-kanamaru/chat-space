@@ -13,7 +13,19 @@
             = "#{user.name},"
       .right-box__message
         .right-box__message__box{id: 'right-box__message__box'}
-          = render @messages
+          - @read_messages.each do |read_message|
+            - if read_message.user_id == current_user.id
+              .right-box__message__box__detail-current_user{data:{id: read_message.id}}
+                = render 'message', message: read_message
+            - else
+              .right-box__message__box__detail-other_user{data:{id: read_message.id}}
+                = render 'message', message: read_message
+          - unless @unread_messages.empty?
+            .right-box__message__unread{id: 'right-box__message__unread'}
+              = "ここからが未読のメッセージです"
+          - @unread_messages.each do |unread_message|
+            .right-box__message__box__detail-other_user{data:{id: unread_message.id}}
+              = render 'message', message: unread_message
 
       .right-box__send
         = form_for [@group, @message], html: {id: 'new_message'} do |f|

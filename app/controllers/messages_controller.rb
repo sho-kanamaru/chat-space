@@ -9,16 +9,16 @@ class MessagesController < ApplicationController
     @users = User.where.not(id: current_user)
     @message.message_recipients.build
     group_message = MessageRecipient.where(group_id: @group, user_id: current_user)
+    @read_messages = Message.read_message(@group, current_user)
+    @unread_messages = Message.unread_message(@group, current_user)
     group_message.update_all(read_flg: "read")
-    respond_to do |format|
-      format.html
-      format.json {@update_message = @group.messages.where('id > ?', params[:last_message_id])}
-    end
   end
 
   def create
     @message = current_user.messages.new(message_params)
     group_message = MessageRecipient.where(group_id: @group, user_id: current_user)
+    @read_messages = group_message.read
+    @unread_messages = group_message.unread
     group_message.update_all(read_flg: "read")
     @unread_count_messages = unread_message_count(@group, @group.users.where.not(id: current_user))
     if @message.save
